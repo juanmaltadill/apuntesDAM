@@ -1,0 +1,43 @@
+Arrays Bidimensionales
+______________________
+
+Si bien los arrays no son como una hoja de excel que se divide en filas y columnas, es muy útil usar esa abstracción para entender cómo funcionan. Es por ello que en estos apuntes se considerará al primer corchete las filas y al segundo las columnas.
+
+Se declaran:
+
+	int Array[][] = new int [5][5]; (los 5 son ejemplos)
+
+En esta declaración, los dos corchetes significan que es un array de dos dimensiones. Mientras que en "new int [][]" establecemos el tamaño de cada una de las dimensiones. Esto nos daría un array de tamaño x*y.
+
+Si queremos un array de dimensiones irregulares, en ese caso deberíamos hacer:
+
+	int Array[][] = new int [4][] (en este caso, el array tendrá 4 de tamaño definido para las filas mientras que las columnas serán 					      indeterminadas)
+
+	Array[0] = new int [2];
+	Array[1] = new int [3];
+	Array[2] = new int [2];
+	Array[3] = new int [4]; (en este ejemplo hemos dado 2 columnas a la fila 1, 3 columnas a la fila 2, 2 columnas a la fila 3 y 4 columnas a la 					fila 4)
+
+Para recorrer el array y obtener su longitud tenemos dos opciones:
+
+	- Para obtener la longitud del array en general, es decir, la cantidad de filas que tiene usamos:
+		longitud = Array.length; ----> ESTO DA LA CANTIDAD DE FILAS, LAS COLUMNAS NO
+
+	- Para obtener la cantidad de columnas que tiene una fila (en el caso de los arrays irregulares):
+		longitud = Array.length[0].length; -------> donde length[0] es la cantidad de columnas que tiene la fila 0
+
+Para recorrer el array tenemos dos tipos de bucles que podemos usar:
+
+	- For:
+		for (int i=0; i < array.length; i++){
+			for (int j=0; j<array[i].length, j++{ ---------> aquí, si en vez de poner j<array[i] pusieramos array[0] funcionaría sólo
+				System.out.println (array[i][j]);	 si fuese un array bidimensional regular, si fuese irregular NO funcionaría
+			}
+		}
+
+	- For each: Es mas sencillo de hacer que el for.
+		for (int[] a: array){
+			for (int b:a){
+				System.out.prinln(b);
+			}
+		}
